@@ -1,6 +1,5 @@
 package pi.device.register.service;
 
-import java.util.Map;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,11 +24,12 @@ public class RegisterDevice {
     @Value("${pi.device.info.path}")
     private String deviceInfoFilePath;
 
-    @Value("%aws.api-gateway.key}")
+    @Value("${aws.api-gateway.key}")
     private String apiKey;
 
     @Value("${aws.api-gateway.endpoint}")
     private String apiEndpoint;
+
 
     public void register(){
         log.info("Begining to Register the Device...");

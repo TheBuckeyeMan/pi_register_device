@@ -14,7 +14,7 @@ public class PostDeviceInfo {
     public void postDeviceInfo(RequestEntity<String> requestEntity){
         log.info("Attempting to post the device information to aws...");
         try{
-            //GEt the rest templaye
+            //Get the rest templaye
             RestTemplate restTemplate = new RestTemplate();
 
             //Make the Request

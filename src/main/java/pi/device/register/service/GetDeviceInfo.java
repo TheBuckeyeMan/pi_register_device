@@ -1,5 +1,9 @@
 package pi.device.register.service;
 import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,12 +21,15 @@ public class GetDeviceInfo {
             validateDeviceInfoFile(deviceInfoFile);
 
             // Get the Contents of the file
-            String deviceInfo = deviceInfoFile.toString();
+            String deviceInfo = new String(Files.readAllBytes(deviceInfoFile.toPath()), StandardCharsets.UTF_8);
 
             return deviceInfo;
-        } catch (RuntimeException e){
-            log.error("Error occured while attempting to get the device information", e.getMessage(), e);
+        } catch (IOException e){
+            log.error("File Read Write Error occured.", e.getMessage(), e);
             throw new RuntimeException();
+        } catch (Exception e){
+            log.error("An Unexpected Error occured while attempting to get the device information", e.getMessage(), e);
+            throw new RuntimeException("An Unexpected Error occured while attempting to get the device information", e);
         }
     }
 
