@@ -5,3 +5,7 @@ pi:
   device:
     info:
       path: "/boot/firmware/device-info.json"
+
+aws:
+  api-gateway:
+    key: ${API_KEY}
