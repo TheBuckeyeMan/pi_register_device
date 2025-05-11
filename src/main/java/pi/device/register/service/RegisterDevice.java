@@ -25,14 +25,20 @@ public class RegisterDevice {
     @Value("${pi.device.info.path}")
     private String deviceInfoFilePath;
 
+    @Value("%aws.api-gateway.key}")
+    private String apiKey;
+
+    @Value("${aws.api-gateway.endpoint}")
+    private String apiEndpoint;
+
     public void register(){
         log.info("Begining to Register the Device...");
 
         //Get the Device Information
-        Map<String, String> deviceInfoFile = getDeviceInfo.getPiInfo(deviceInfoFilePath);
+        String deviceInfoFile = getDeviceInfo.getPiInfo(deviceInfoFilePath);
 
         //Build the API Request
-        RequestEntity<String> request = buildRequest.makePostRequest(deviceInfoFile);
+        RequestEntity<String> request = buildRequest.makePostRequest(deviceInfoFile, apiKey, apiEndpoint);
 
         //Send the Request to the API
         postDeviceInfo.postDeviceInfo(request);

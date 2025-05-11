@@ -8,4 +8,5 @@ pi:
     
 aws:
   api-gateway:
+    endpoint: ${API_ENDPOINT}
     key: ${API_KEY}
