@@ -1,5 +1,7 @@
 package pi.device.register.service;
 
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,8 +21,14 @@ public class RegisterDevice {
 
     public void register(){
         log.info("Begining to Register the Device...");
-        getDeviceInfo.getPiInfo(deviceInfoFilePath);
+
+        //Get the Device Information
+        Map<String, String> deviceInfoFile = getDeviceInfo.getPiInfo(deviceInfoFilePath);
+
+        //Build the API Request
+
+        //Send the Request to the API
     }
 
-    
+
 }
