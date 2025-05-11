@@ -1,0 +1,7 @@
+spring: 
+  environment: dev
+
+pi:
+  device:
+    info:
+      path: "/boot/firmware/device-info.json"
