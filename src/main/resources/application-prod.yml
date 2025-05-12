@@ -4,7 +4,7 @@ spring:
 pi:
   device:
     info:
-      path: "/boot/firmware/device-info.json"
+      path: "/app/device-info.json"
     
 aws:
   api-gateway:
