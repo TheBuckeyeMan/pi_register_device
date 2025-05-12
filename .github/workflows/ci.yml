@@ -46,7 +46,7 @@ jobs:
 
       - name: Building Docker Image
         run: |
-          docker build -t $DOCKER_IMAGE_NAME .
+          docker buildx build --platform linux/arm/v7 -t $DOCKER_IMAGE_NAME --output type=docker .
     
       - name: Save Docker Image as Artifact
         run: |
